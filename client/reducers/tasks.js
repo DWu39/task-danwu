@@ -11,7 +11,7 @@ const insert = (array, index, item) => {
   ];
 }
 
-const taskReducer = (state = [], action) => {
+const tasks = (state = [], action) => {
   switch (action.type) {
     case 'CLOSE': {
       const i = state.findIndex((task) => task.id === action.id);
@@ -66,4 +66,4 @@ const taskReducer = (state = [], action) => {
   }
 }
 
-export default taskReducer;
+export default tasks;
