@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import {
   closeTask,
   deleteTask,
-  editTask,
   openTask
 } from '../actions';
 import TaskList from '../components/TaskList';
@@ -16,7 +15,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   closeTask,
   deleteTask,
-  editTask,
   openTask
 }
 

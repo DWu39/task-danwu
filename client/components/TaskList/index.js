@@ -25,7 +25,6 @@ const EmptyTaskList = Wrapper.extend`
 const TaskList = ({
   closeTask,
   deleteTask,
-  editTask,
   openTask,
   tasks
 }) => (
@@ -34,9 +33,8 @@ const TaskList = ({
       ? tasks.map((task) => (
         <Task
           key={task.id}
-          closeTask={() => { closeTask(task.id); }}
+          closeTask={(text) => { closeTask(task.id, text); }}
           deleteTask={() => { deleteTask(task.id); }}
-          editTask={(text) => { editTask(task.id, text); }}
           openTask={() => { openTask(task.id); }}
           isOpened={task.isOpened}
           text={task.text}

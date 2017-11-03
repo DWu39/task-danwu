@@ -27,7 +27,7 @@ const TrashButton = styled(Button)`
   padding: 0;
 `;
 
-const handleInputChange = (handler) => {
+const handleBlur = (handler) => {
   return (event) => {
     handler(event.target.value);
   };
@@ -38,7 +38,7 @@ const handleKeyDown = (handler) => {
     // pressed enter, escape, or tab
     if (event.key === 'Enter' || event.keyCode === 27 || event.keyCode === 9) {
       event.preventDefault();
-      handler();
+      handler(event.target.value);
     }
   };
 }
@@ -46,7 +46,6 @@ const handleKeyDown = (handler) => {
 const Task = ({
   closeTask,
   deleteTask,
-  editTask,
   openTask,
   isOpened,
   text
@@ -55,8 +54,7 @@ const Task = ({
     {isOpened
       ? <input
           autoFocus
-          onBlur={closeTask}
-          onChange={handleInputChange(editTask)}
+          onBlur={handleBlur(closeTask)}
           onKeyDown={handleKeyDown(closeTask)}
           placeholder='Edit task description'
           type='text'
@@ -76,16 +74,16 @@ const Task = ({
 );
 
 Task.propTypes = {
+  closeTask: PropTypes.func,
   deleteTask: PropTypes.func,
-  editTask: PropTypes.func,
   openTask: PropTypes.func,
   isOpened: PropTypes.bool,
   text: PropTypes.string
 }
 
 Task.defaultProps = {
+  closeTask: null,
   deleteTask: null,
-  editTask: null,
   openTask: null,
   isOpened: false,
   text: PropTypes.string

@@ -1,38 +1,28 @@
 const DEFAULT_TODO = 'New task';
 
-const getNextId = () => Math.random(); // TODO: how to generate more stably?
-
-// inserts element without modification
-const insert = (array, index, item) => {
-  return [
-    ...array.slice(0, index),
-    item,
-    ...array.slice(index+1)
-  ];
-}
+// TODO: how to generate more stably?
+const getNextId = () => {
+  return Math.random();
+};
 
 const tasks = (state = [], action) => {
   switch (action.type) {
     case 'CLOSE': {
       const i = state.findIndex((task) => task.id === action.id);
-      const closeTask = {
+      const closedTask = {
         ...state[i],
-        isOpened: false
+        isOpened: false,
+        text: action.text || DEFAULT_TODO
       };
-      return insert(state, i, closeTask);
+      return [
+        ...state.slice(0, i),
+        closedTask,
+        ...state.slice(i+1)
+      ];
     }
 
     case 'DELETE':
       return state.filter((task) => task.id !== action.id);
-
-    case 'EDIT': {
-      const i = state.findIndex((task) => task.id === action.id);
-      const editedTask = {
-        ...state[i],
-        text: action.text
-      };
-      return insert(state, i, editedTask);
-    }
 
     case 'GET': {
       // TODO: use thunk to make API request
@@ -42,9 +32,13 @@ const tasks = (state = [], action) => {
     case 'NEW': {
       const newTask = {
         id: getNextId(),
+        isOpened: true,
         text: DEFAULT_TODO
       };
-      return insert(state, 0, newTask);
+      return [
+        newTask,
+        ...state.slice(0)
+      ];
     }
 
     case 'OPEN': {
@@ -53,7 +47,11 @@ const tasks = (state = [], action) => {
         ...state[i],
         isOpened: true
       };
-      return insert(state, i, openedTask);
+      return [
+        ...state.slice(0, i),
+        openedTask,
+        ...state.slice(i+1)
+      ];
     }
 
     case 'SAVE': {

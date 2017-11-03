@@ -1,17 +1,12 @@
-export const closeTask = (id) => ({
+export const closeTask = (id, text) => ({
   type: 'CLOSE',
-  id
+  id,
+  text
 });
 
 export const deleteTask = (id) => ({
   type: 'DELETE',
   id
-});
-
-export const editTask = (id, text) => ({
-  type: 'EDIT',
-  id,
-  text
 });
 
 export const get = () => ({
