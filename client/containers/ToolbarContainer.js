@@ -1,11 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import {
+import actions from '../actions';
+import Toolbar from '../components/Toolbar';
+
+const {
   newTask,
   save
-} from '../actions';
-import Toolbar from '../components/Toolbar';
+} = actions.tasks;
+
+const mapStateToProps = (state) => ({
+  edited: state.edited
+});
 
 const mapDispatchToProps = {
   newTask,
@@ -13,7 +19,7 @@ const mapDispatchToProps = {
 }
 
 const ToolbarContainer = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Toolbar);
 

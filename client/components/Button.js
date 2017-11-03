@@ -9,19 +9,21 @@ const StyledButton = styled.button`
   border: none;
   color: ${theme.white};
   cursor: pointer;
-  padding: 8px;
+  padding: 12px;
   text-transform: capitalize;
 `;
 
 const Button = ({
   children,
   className,
+  disabled,
   onClick,
   primary
 }) => {
   return (
     <StyledButton
       className={className}
+      disabled={disabled}
       onClick={onClick}
       primary={primary}
     >
@@ -33,6 +35,7 @@ const Button = ({
 Button.propTypes = {
   children: PropTypes.any,
   className: PropTypes.any,
+  disabled: PropTypes.bool,
   onClick: PropTypes.func,
   primary: PropTypes.bool
 }
@@ -40,6 +43,7 @@ Button.propTypes = {
 Button.defaultProps = {
   children: null,
   className: null,
+  disabled: false,
   onClick: null,
   primary: true
 }

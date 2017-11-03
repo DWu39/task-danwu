@@ -25,6 +25,7 @@ const ButtonGroup = styled.div`
 `;
 
 const Toolbar = ({
+  edited,
   newTask,
   save
 }) => (
@@ -32,7 +33,7 @@ const Toolbar = ({
     <StyledHeading>tasks</StyledHeading>
     <ButtonGroup>
       <Button primary={false} onClick={newTask}>add task</Button>
-      <Button onClick={save}>save</Button>
+      <Button disabled={!edited} onClick={save}>save</Button>
     </ButtonGroup>
   </Container>
 );

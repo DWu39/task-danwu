@@ -1,9 +1,11 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 
-import tasks from './tasks'
+import tasks from './tasks';
+import edited from './edited';
 
 const combined = combineReducers({
-  tasks: tasks
+  edited,
+  tasks
 });
 
 export default combined;

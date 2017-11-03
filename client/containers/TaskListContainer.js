@@ -1,12 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import {
+import actions from '../actions';
+import TaskList from '../components/TaskList';
+
+const {
   closeTask,
   deleteTask,
   openTask
-} from '../actions';
-import TaskList from '../components/TaskList';
+} = actions.tasks;
 
 const mapStateToProps = (state) => ({
   tasks: state.tasks
