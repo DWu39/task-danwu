@@ -27,12 +27,48 @@ const TrashButton = styled(Button)`
   padding: 0;
 `;
 
+const handleInputChange = (handler) => {
+  return (event) => {
+    handler(event.target.value);
+  };
+}
+
+const handleKeyDown = (handler) => {
+  return (event) => {
+    // pressed enter, escape, or tab
+    if (event.key === 'Enter' || event.keyCode === 27 || event.keyCode === 9) {
+      event.preventDefault();
+      handler();
+    }
+  };
+}
+
 const Task = ({
+  closeTask,
   deleteTask,
+  editTask,
+  openTask,
+  isOpened,
   text
 }) => (
   <StyledTask>
-    <StyledTaskText>{text}</StyledTaskText>
+    {isOpened
+      ? <input
+          autoFocus
+          onBlur={closeTask}
+          onChange={handleInputChange(editTask)}
+          onKeyDown={handleKeyDown(closeTask)}
+          placeholder='Edit task description'
+          type='text'
+        />
+      : <StyledTaskText
+          onClick={openTask}
+          onFocus={openTask}
+          tabIndex={0}
+        >
+          {text}
+        </StyledTaskText>
+    }
     <TrashButton onClick={deleteTask}>
       <i className="fa fa-trash-o"></i>
     </TrashButton>
@@ -41,11 +77,17 @@ const Task = ({
 
 Task.propTypes = {
   deleteTask: PropTypes.func,
+  editTask: PropTypes.func,
+  openTask: PropTypes.func,
+  isOpened: PropTypes.bool,
   text: PropTypes.string
 }
 
 Task.defaultProps = {
   deleteTask: null,
+  editTask: null,
+  openTask: null,
+  isOpened: false,
   text: PropTypes.string
 }
 

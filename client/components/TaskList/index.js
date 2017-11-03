@@ -23,26 +23,32 @@ const EmptyTaskList = Wrapper.extend`
 `;
 
 const TaskList = ({
+  closeTask,
   deleteTask,
+  editTask,
+  openTask,
   tasks
 }) => (
   <StyledTaskList>
     {tasks.length
-      ? tasks.map((task) => {
-        return (
-          <Task
-            key={task.id}
-            deleteTask={() => { deleteTask(task.id); }}
-            text={task.text}
-          />
-        );
-      })
+      ? tasks.map((task) => (
+        <Task
+          key={task.id}
+          closeTask={() => { closeTask(task.id); }}
+          deleteTask={() => { deleteTask(task.id); }}
+          editTask={(text) => { editTask(task.id, text); }}
+          openTask={() => { openTask(task.id); }}
+          isOpened={task.isOpened}
+          text={task.text}
+        />
+      ))
       : <EmptyTaskList>You don't have any tasks. Start by clicking "Add Task"!</EmptyTaskList>
     }
   </StyledTaskList>
 );
 
 TaskList.propTypes = {
+  deleteTask: PropTypes.func,
   tasks: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -52,6 +58,7 @@ TaskList.propTypes = {
 }
 
 TaskList.defaultProps = {
+  deleteTask: null,
   tasks: []
 }
 

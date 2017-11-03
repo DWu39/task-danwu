@@ -2,8 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import {
+  closeTask,
   deleteTask,
-  editTask
+  editTask,
+  openTask
 } from '../actions';
 import TaskList from '../components/TaskList';
 
@@ -12,8 +14,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
+  closeTask,
   deleteTask,
-  editTask
+  editTask,
+  openTask
 }
 
 const TaskListContainer = connect(
