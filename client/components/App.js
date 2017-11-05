@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Header from './Header';
-import TaskListContainer from '../containers/TaskListContainer';
-import ToolbarContainer from '../containers/ToolbarContainer';
+import TasksContainer from '../containers/TasksContainer';
+import ToastAreaContainer from '../containers/ToastAreaContainer';
 
-const Container = styled.div`
+const Wrapper = styled.div`
   margin: 0 auto;
   padding: 0 18%;
 `;
@@ -15,10 +15,10 @@ export default class App extends React.Component {
     return (
       <div>
         <Header/>
-        <Container>
-          <ToolbarContainer/>
-          <TaskListContainer/>
-        </Container>
+        <Wrapper>
+          <TasksContainer/>
+          <ToastAreaContainer/>
+        </Wrapper>
       </div>
     );
   }

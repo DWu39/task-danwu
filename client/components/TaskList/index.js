@@ -46,17 +46,21 @@ const TaskList = ({
 );
 
 TaskList.propTypes = {
+  closeTask: PropTypes.func,
   deleteTask: PropTypes.func,
+  openTask: PropTypes.func,
   tasks: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       text: PropTypes.string.isRequired
     })
   )
 }
 
 TaskList.defaultProps = {
+  closeTask: null,
   deleteTask: null,
+  openTask: null,
   tasks: []
 }
 

@@ -2,11 +2,10 @@ import 'normalize.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import { injectGlobal } from 'styled-components';
 
 import App from './components/App.js';
-import reducer from './reducers';
+import store from './store.js';
 import theme from './style/theme';
 import Lato from './fonts/lato/Lato-Regular.ttf';
 import 'font-awesome/css/font-awesome.css';
@@ -24,8 +23,6 @@ injectGlobal`
     font-weight: 600;
   }
 `;
-
-const store = createStore(reducer);
 
 ReactDOM.render(
   <Provider store={store}>

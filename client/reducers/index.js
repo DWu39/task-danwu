@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
 
-import tasks from './tasks';
 import edited from './edited';
+import tasks from './tasks';
+import toasts from './toasts';
 
 const combined = combineReducers({
   edited,
-  tasks
+  tasks,
+  toasts
 });
 
 export default combined;

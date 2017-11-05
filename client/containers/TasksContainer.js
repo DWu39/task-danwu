@@ -2,27 +2,32 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import actions from '../actions';
-import TaskList from '../components/TaskList';
+import Tasks from '../components/Tasks';
 
 const {
   closeTask,
   deleteTask,
-  openTask
+  newTask,
+  openTask,
+  saveTasks
 } = actions.tasks;
 
-const mapStateToProps = (state) => ({
-  tasks: state.tasks
+const mapStateToProps = ({ edited, tasks }) => ({
+  edited,
+  tasks
 });
 
 const mapDispatchToProps = {
   closeTask,
   deleteTask,
-  openTask
+  newTask,
+  openTask,
+  saveTasks
 }
 
-const TaskListContainer = connect(
+const TasksContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(TaskList);
+)(Tasks);
 
-export default TaskListContainer;
+export default TasksContainer;

@@ -1,9 +1,6 @@
-const DEFAULT_TODO = 'New task';
+import shortid from 'shortid';
 
-// TODO: how to generate more stably?
-const getNextId = () => {
-  return Math.random();
-};
+const DEFAULT_TODO = 'New task';
 
 const tasks = (state = [], action) => {
   switch (action.type) {
@@ -24,14 +21,9 @@ const tasks = (state = [], action) => {
     case 'DELETE':
       return state.filter((task) => task.id !== action.id);
 
-    case 'GET': {
-      // TODO: use thunk to make API request
-      console.log('get');
-    }
-
     case 'NEW': {
       const newTask = {
-        id: getNextId(),
+        id: shortid.generate(),
         isOpened: true,
         text: DEFAULT_TODO
       };
@@ -54,9 +46,8 @@ const tasks = (state = [], action) => {
       ];
     }
 
-    case 'SAVE': {
-      // TODO: use thunk to make API request
-      console.log('save');
+    case 'RECEIVE': {
+      return action.tasks || [];
     }
 
     default:

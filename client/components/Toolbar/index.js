@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -27,15 +28,27 @@ const ButtonGroup = styled.div`
 const Toolbar = ({
   edited,
   newTask,
-  save
+  saveTasks
 }) => (
   <Container>
     <StyledHeading>tasks</StyledHeading>
     <ButtonGroup>
       <Button primary={false} onClick={newTask}>add task</Button>
-      <Button disabled={!edited} onClick={save}>save</Button>
+      <Button disabled={!edited} onClick={saveTasks}>save</Button>
     </ButtonGroup>
   </Container>
 );
+
+Toolbar.propTypes = {
+  edited: PropTypes.bool,
+  newTask: PropTypes.func,
+  saveTasks: PropTypes.func
+};
+
+Toolbar.defaultProps = {
+  edited: false,
+  newTask: null,
+  saveTasks: null
+}
 
 export default Toolbar;

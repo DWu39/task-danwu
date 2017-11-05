@@ -4,8 +4,8 @@ const edited = (state = false, action) => {
     case 'NEW':
     case 'OPEN':
       return true;
-    case 'SAVE':
-      return false;
+    case 'SHOW_TOAST':
+      return !action.toast.success;
     default:
       return state;
   }
