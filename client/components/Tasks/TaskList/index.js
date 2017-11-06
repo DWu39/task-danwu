@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import Task from './Task';
 import Wrapper from './Wrapper';
-import theme from '../../style/theme';
+import theme from '../../../style/theme';
 
 const StyledTaskList = styled.ul`
   margin: 0;
@@ -15,10 +15,9 @@ const StyledTaskList = styled.ul`
 const EmptyTaskList = Wrapper.extend`
   color: ${theme.navy};
   font-size: 20px;
-
   display: flex;
-  flex-direction:column;
-  justify-content:center;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
 `;
 

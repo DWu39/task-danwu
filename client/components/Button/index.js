@@ -2,10 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import theme from '../style/theme';
+import theme from '../../style/theme';
 
-const StyledButton = styled.button`
-  background: ${({primary}) => primary ? theme.green : theme.gray};
+const StyledButton = styled.button `
+  background: ${ ({
+  primary}) => primary ? theme.green : theme.gray};
   border: none;
   color: ${theme.white};
   cursor: pointer;
@@ -13,20 +14,9 @@ const StyledButton = styled.button`
   text-transform: capitalize;
 `;
 
-const Button = ({
-  children,
-  className,
-  disabled,
-  onClick,
-  primary
-}) => {
+const Button = ({children, className, disabled, onClick, primary}) => {
   return (
-    <StyledButton
-      className={className}
-      disabled={disabled}
-      onClick={onClick}
-      primary={primary}
-    >
+    <StyledButton className={className} disabled={disabled} onClick={onClick} primary={primary}>
       {children}
     </StyledButton>
   );

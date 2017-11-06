@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import Button from '../Button';
-import theme from '../../style/theme';
+import Button from '../../Button';
+import theme from '../../../style/theme';
 
 const StyledToast = styled.div`
   background: ${({ success }) => success ? theme.greenLight : theme.redLight};
@@ -13,7 +13,6 @@ const StyledToast = styled.div`
   color: ${({ success }) => success ? theme.green : theme.red};
   margin: 12px;
   padding: 8px 20px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;

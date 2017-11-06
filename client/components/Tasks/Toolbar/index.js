@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import Button from '../Button';
-import theme from '../../style/theme';
+import Button from '../../Button';
+import theme from '../../../style/theme';
 
 const Container = styled.div`
-align-items: center;
+  align-items: center;
   display: flex;
   justify-content: space-between;
   margin: 24px 0;

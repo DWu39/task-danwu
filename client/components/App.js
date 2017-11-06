@@ -5,7 +5,7 @@ import Header from './Header';
 import TasksContainer from '../containers/TasksContainer';
 import ToastAreaContainer from '../containers/ToastAreaContainer';
 
-const Wrapper = styled.div`
+const AppWrapper = styled.div`
   margin: 0 auto;
   padding: 0 18%;
 `;
@@ -15,10 +15,10 @@ export default class App extends React.Component {
     return (
       <div>
         <Header/>
-        <Wrapper>
+        <AppWrapper>
           <TasksContainer/>
           <ToastAreaContainer/>
-        </Wrapper>
+        </AppWrapper>
       </div>
     );
   }

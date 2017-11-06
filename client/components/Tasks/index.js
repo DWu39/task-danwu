@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import TaskList from '../components/TaskList';
-import Toolbar from '../components/Toolbar';
+import TaskList from './TaskList';
+import Toolbar from './Toolbar';
 
 const Tasks = ({
   closeTask,

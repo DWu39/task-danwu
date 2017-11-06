@@ -2,13 +2,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import Button from '../Button';
-import Wrapper from './Wrapper';
-import theme from '../../style/theme';
+import Button from '../../../Button';
+import Wrapper from '../Wrapper';
+import theme from '../../../../style/theme';
 
 const StyledTask = Wrapper.extend`
   padding: 14px;
-
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -86,7 +85,7 @@ Task.defaultProps = {
   deleteTask: null,
   openTask: null,
   isOpened: false,
-  text: PropTypes.string
+  text: ''
 }
 
 export default Task;

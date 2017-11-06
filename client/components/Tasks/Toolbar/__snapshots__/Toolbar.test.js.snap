@@ -1,0 +1,237 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toolbar should render correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Toolbar
+    edited={false}
+    newTask={null}
+    saveTasks={null}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styled.p>
+          tasks
+        </styled.p>,
+        <styled.div>
+          <Button
+            className={null}
+            disabled={false}
+            onClick={null}
+            primary={false}
+          >
+            add task
+          </Button>
+          <Button
+            className={null}
+            disabled={true}
+            onClick={null}
+            primary={true}
+          >
+            save
+          </Button>
+        </styled.div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "tasks",
+        },
+        "ref": null,
+        "rendered": "tasks",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <Button
+              className={null}
+              disabled={false}
+              onClick={null}
+              primary={false}
+            >
+              add task
+            </Button>,
+            <Button
+              className={null}
+              disabled={true}
+              onClick={null}
+              primary={true}
+            >
+              save
+            </Button>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "add task",
+              "className": null,
+              "disabled": false,
+              "onClick": null,
+              "primary": false,
+            },
+            "ref": null,
+            "rendered": "add task",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "save",
+              "className": null,
+              "disabled": true,
+              "onClick": null,
+              "primary": true,
+            },
+            "ref": null,
+            "rendered": "save",
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.p>
+            tasks
+          </styled.p>,
+          <styled.div>
+            <Button
+              className={null}
+              disabled={false}
+              onClick={null}
+              primary={false}
+            >
+              add task
+            </Button>
+            <Button
+              className={null}
+              disabled={true}
+              onClick={null}
+              primary={true}
+            >
+              save
+            </Button>
+          </styled.div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "tasks",
+          },
+          "ref": null,
+          "rendered": "tasks",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <Button
+                className={null}
+                disabled={false}
+                onClick={null}
+                primary={false}
+              >
+                add task
+              </Button>,
+              <Button
+                className={null}
+                disabled={true}
+                onClick={null}
+                primary={true}
+              >
+                save
+              </Button>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": "add task",
+                "className": null,
+                "disabled": false,
+                "onClick": null,
+                "primary": false,
+              },
+              "ref": null,
+              "rendered": "add task",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": "save",
+                "className": null,
+                "disabled": true,
+                "onClick": null,
+                "primary": true,
+              },
+              "ref": null,
+              "rendered": "save",
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

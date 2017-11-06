@@ -1,6 +1,6 @@
 import shortid from 'shortid';
 
-const DEFAULT_TODO = 'New task';
+const DEFAULT_TASK = 'New task';
 
 const tasks = (state = [], action) => {
   switch (action.type) {
@@ -9,7 +9,7 @@ const tasks = (state = [], action) => {
       const closedTask = {
         ...state[i],
         isOpened: false,
-        text: action.text || DEFAULT_TODO
+        text: action.text || DEFAULT_TASK
       };
       return [
         ...state.slice(0, i),
@@ -25,7 +25,7 @@ const tasks = (state = [], action) => {
       const newTask = {
         id: shortid.generate(),
         isOpened: true,
-        text: DEFAULT_TODO
+        text: DEFAULT_TASK
       };
       return [
         newTask,

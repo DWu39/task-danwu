@@ -1,9 +1,10 @@
-import { showToastWithTimer } from './toasts';
-
-const API = 'http://cfassignment.herokuapp.com/daniel-wu/tasks';
-const FETCH_FAIL = 'Error fetching tasks. Refresh to try again.';
-const SUCCESS_MESSAGE = 'Tasks saved successfully.';
-const FAILURE_MESSAGE = 'Tasks saved unsuccessfully.';
+import { showToastWithTimer } from '../toasts';
+import {
+  API,
+  FETCH_FAIL,
+  SUCCESS_MESSAGE,
+  FAILURE_MESSAGE
+} from '../../constants';
 
 export const closeTask = (id, text) => ({
   type: 'CLOSE',
