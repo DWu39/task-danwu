@@ -49,15 +49,13 @@ export const receiveTasks = (tasks) => ({
   tasks
 });
 
-export const saveTasks = () => {
+export const saveTasks = (tasks) => {
   // TODO: handle saving state to display saving indicator
-  return (dispatch, getState) => {
-    const tasks = getState().tasks;
-
+  return (dispatch) => {
     const payload = {
       method: 'POST',
       body: JSON.stringify({
-        tasks: tasks
+        tasks
       }),
       headers: new Headers({
         'accept': 'application/json',

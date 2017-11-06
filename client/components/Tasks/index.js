@@ -17,7 +17,7 @@ const Tasks = ({
     <Toolbar
       edited={edited}
       newTask={newTask}
-      saveTasks={saveTasks}
+      saveTasks={() => { saveTasks(tasks); }}
     />
     <TaskList
       closeTask={closeTask}

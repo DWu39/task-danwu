@@ -7,18 +7,18 @@ export const closeToast = (id) => ({
  id
 });
 
-export const showToast = (success, message) => ({
+export const showToast = (success, text) => ({
   type: 'SHOW_TOAST',
   toast: {
     id: shortid.generate(),
-    success: success,
-    text: message
+    success,
+    text
   }
 });
 
-export const showToastWithTimer = (success, message) => {
+export const showToastWithTimer = (success, text) => {
   return (dispatch, getState) => {
-    const action = dispatch(showToast(success, message));
+    const action = dispatch(showToast(success, text));
 
     setTimeout(() => {
       const toasts = getState().toasts;

@@ -1,14 +1,23 @@
 import configureMockStore from 'redux-mock-store';
 import fetchMock from 'fetch-mock';
+import 'isomorphic-fetch';
 import thunk from 'redux-thunk';
 
 import * as actions from '../tasks';
-import {
-  API,
-  FETCH_FAIL,
-  SUCCESS_MESSAGE,
-  FAILURE_MESSAGE
-} from '../../constants';
+import { API } from '../../constants';
+
+jest.mock('../toasts', () => ({
+  showToastWithTimer: () => ({
+    type: 'SHOW_TOAST',
+    toast: {
+      id: 'id2',
+      success: true,
+      text: 'Toast message'
+    }
+  })
+}));
+
+import { showToastWithTimer } from '../toasts';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -97,7 +106,40 @@ describe('async task action creators', () => {
     const store = mockStore({ tasks: [] });
 
     return store.dispatch(actions.fetchTasks()).then(() => {
+      expect(fetchMock.called(API)).toBeTruthy();
       expect(store.getActions()).toEqual(expectedActions);
     })
+  });
+
+  it('should save tasks', () => {
+    fetchMock.postOnce(
+      API,
+      {
+        body: {
+          tasks: []
+        },
+        headers: {
+          'content-type': 'application/json'
+        }
+      }
+    );
+
+    const expectedActions = [
+      {
+        type: 'SHOW_TOAST',
+        toast: {
+          id: 'id2',
+          success: true,
+          text: 'Toast message'
+        }
+      }
+    ];
+
+    const store = mockStore({ tasks: [] });
+
+    return store.dispatch(actions.saveTasks([])).then(() => {
+      expect(fetchMock.called(API)).toBeTruthy();
+      expect(store.getActions()).toEqual(expectedActions);
+    });
   });
 });
