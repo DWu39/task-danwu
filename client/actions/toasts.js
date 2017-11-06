@@ -23,7 +23,7 @@ export const showToastWithTimer = (success, message) => {
     setTimeout(() => {
       const toasts = getState().toasts;
       const toastId = action.toast.id;
-      if (toasts.indexOf(toastId) !== -1) {
+      if (toasts.filter((toast) => toast.id === toastId).length) {
         dispatch(closeToast(toastId));
       }
     }, TOAST_TIMER);
