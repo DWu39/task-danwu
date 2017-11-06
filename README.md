@@ -13,6 +13,7 @@ I should probably use an external toast notification library.
 
 Improvements - Things I wish I had time for
 * Add functional testing
+* Make production Webpack config to optimize build files uglify and remove Redux logging
 * Finish testing all the async actions
 * Extract toast and task objects from reducer into models
 * Extend toast model to support different toast types
